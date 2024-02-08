@@ -1,0 +1,17 @@
+*:Zone.Identifier
+.vscode/c_cpp_properties.json
+benchmark-planners/results/All-minus_SmacLattice/costmap.pickle
+benchmark-planners/results/All-minus_SmacLattice/planners.pickle
+benchmark-planners/results/All-minus_SmacLattice/results.pickle
+benchmark-planners/results/all-planners2/costmap.pickle
+benchmark-planners/results/all-planners2/planners.pickle
+benchmark-planners/results/all-planners2/results.pickle
+benchmark-planners/results/AStar-Dijkstra/costmap.pickle
+benchmark-planners/results/AStar-Dijkstra/planners.pickle
+benchmark-planners/results/AStar-Dijkstra/results.pickle
+benchmark-planners/results/All-Planners/costmap.pickle
+benchmark-planners/results/All-Planners/planners.pickle
+benchmark-planners/results/All-Planners/results.pickle
+benchmark-planners/results/AStar-Dijkstra-ThetaStar/costmap.pickle
+benchmark-planners/results/AStar-Dijkstra-ThetaStar/planners.pickle
+benchmark-planners/results/AStar-Dijkstra-ThetaStar/results.pickle
