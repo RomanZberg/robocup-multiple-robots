@@ -127,6 +127,15 @@ def generate_launch_description():
                    '-Y', spawn_yaw_val],
         output='screen')
 
+    rviz2_config_file = "test.rviz"
+    rviz2_config_path = os.path.join(pkg_share, "rcll_sim", "rviz", rviz2_config_file)
+    rviz2 = Node(
+        package="rviz2",
+        executable="rviz2",
+        name="rviz2",
+        arguments=["-d", rviz2_config_path]
+    )
+
     # Create the launch description and populate
     ld = LaunchDescription()
 
@@ -144,5 +153,29 @@ def generate_launch_description():
     ld.add_action(spawn_entity_cmd_2)
     ld.add_action(spawn_entity_cmd_3)
 
+    ld.add_action(rviz2)
+
+
+    ld.add_action(
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([
+                FindPackageShare("slam_toolbox"), '/launch', '/online_async_launch.py']),
+            launch_arguments={
+                'slam_params_file': [
+                        FindPackageShare("robocup_navigation"), '/config', '/mapper_params_online_async_robotino_1.yaml']
+
+            }.items(),
+        )
+    )
+
+    static_transform_publisher_node_1 = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_transform_publisher',
+        arguments=['0.05', '0.3', '0.0', '0', '0', '0', 'robotino3_hslu_1/body', 'robotino3_hslu_1/laser']
+    )
+
+    ld.add_action(static_transform_publisher_node_1)
+    
 
     return ld

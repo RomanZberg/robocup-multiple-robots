@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.4">
-  <model name="robotino3_hslu">
+  <model name="robotino3_hslu_1">
     <static>false</static>
     <link name="body">
       <pose>0 0 0.001 0 0 0</pose>
