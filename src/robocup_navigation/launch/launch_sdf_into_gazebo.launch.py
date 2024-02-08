@@ -168,6 +168,30 @@ def generate_launch_description():
         )
     )
 
+    ld.add_action(
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([
+                FindPackageShare("slam_toolbox"), '/launch', '/online_async_launch.py']),
+            launch_arguments={
+                'slam_params_file': [
+                    FindPackageShare("robocup_navigation"), '/config', '/mapper_params_online_async_robotino_2.yaml']
+
+            }.items(),
+        )
+    )
+
+    ld.add_action(
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([
+                FindPackageShare("slam_toolbox"), '/launch', '/online_async_launch.py']),
+            launch_arguments={
+                'slam_params_file': [
+                    FindPackageShare("robocup_navigation"), '/config', '/mapper_params_online_async_robotino_3.yaml']
+
+            }.items(),
+        )
+    )
+
     static_transform_publisher_node_1 = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -175,7 +199,24 @@ def generate_launch_description():
         arguments=['0.05', '0.3', '0.0', '0', '0', '0', 'robotino3_hslu_1/body', 'robotino3_hslu_1/laser']
     )
 
+    static_transform_publisher_node_2 = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_transform_publisher',
+        arguments=['0.05', '0.3', '0.0', '0', '0', '0', 'robotino3_hslu_2/body', 'robotino3_hslu_2/laser']
+    )
+
+    static_transform_publisher_node_3 = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_transform_publisher',
+        arguments=['0.05', '0.3', '0.0', '0', '0', '0', 'robotino3_hslu_3/body', 'robotino3_hslu_3/laser']
+    )
+
     ld.add_action(static_transform_publisher_node_1)
-    
+    ld.add_action(static_transform_publisher_node_2)
+    ld.add_action(static_transform_publisher_node_3)
+
+
 
     return ld

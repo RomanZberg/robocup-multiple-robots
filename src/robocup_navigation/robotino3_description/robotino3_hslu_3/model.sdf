@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.4">
-  <model name="robotino3_hslu">
+  <model name="robotino3_hslu_3">
     <static>false</static>
     <link name="body">
       <pose>0 0 0.001 0 0 0</pose>
@@ -123,7 +123,7 @@
       
       <!-- sensors -->
       <sensor type="ray" name="laser_sensor">
-      	<pose relative_to='robotino3_hslu/laser'>0 0 0 0 0 0</pose>
+      	<pose relative_to='robotino3_hslu_3/laser'>0 0 0 0 0 0</pose>
         <visualize>true</visualize>
         <update_rate>10</update_rate>
         <ray>
@@ -152,11 +152,11 @@
                 <namespace>/robotino3_hslu_3</namespace>
             </ros>
             <output_type>sensor_msgs/LaserScan</output_type>
-            <frame_name>robotino3_hslu/laser</frame_name>
+            <frame_name>robotino3_hslu_3/laser</frame_name>
         </plugin>
     </sensor>
     <sensor name='camera' type='camera' always_on='1' update_rate='30' visualize='true'>
-        <pose relative_to='robotino3_hslu/camera'>0 0 0 0 0 0</pose>
+        <pose relative_to='robotino3_hslu_3/camera'>0 0 0 0 0 0</pose>
         <visualize>true</visualize>
         <update_rate>10</update_rate>
         <camera>
@@ -173,7 +173,7 @@
             <cameraInfoTopicName>camera_info</cameraInfoTopicName>
             <updateRate>30.0</updateRate>
             <cameraName>usb_cam</cameraName>
-            <frameName>robotino3_hslu/camera</frameName>
+            <frameName>robotino3_hslu_3/camera</frameName>
             <CxPrime>320.5</CxPrime>
             <Cx>320.5</Cx>
             <Cy>240.5</Cy>
@@ -197,10 +197,10 @@
     -->
     
     <!-- TFs -->
-    <frame name="robotino3_hslu/laser" attached_to='body'>
+    <frame name="robotino3_hslu_3/laser" attached_to='body'>
       <pose>0.05 0 0.3 0 0 0</pose>
     </frame>
-    <frame name="robotino3_hslu/camera" attached_to='body'>
+    <frame name="robotino3_hslu_3/camera" attached_to='body'>
       <pose>0.05 0 0.7 0 0 0</pose>
     </frame>
     
@@ -210,10 +210,10 @@
     <namespace>/robotino3_hslu_3</namespace>
     </ros>
     <!-- <command_topic>cmd_vel</command_topic> -->
-      <odometry_topic>robotino3_hslu/odom</odometry_topic>
-      <odometry_frame>robotino3_hslu/odom</odometry_frame>
+      <odometry_topic>robotino3_hslu_3/odom</odometry_topic>
+      <odometry_frame>robotino3_hslu_3/odom</odometry_frame>
       <odometry_rate>20.0</odometry_rate>
-      <robot_base_frame>robotino3_hslu/body</robot_base_frame>
+      <robot_base_frame>robotino3_hslu_3/body</robot_base_frame>
       <publish_odom>true</publish_odom>
       <publish_odom_tf>true</publish_odom_tf>
       <publish_wheel_tf>true</publish_wheel_tf>
